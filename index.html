@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Kohina 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d63384;
+      margin-top: 1em;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .message {
+      font-size: 1.2rem;
+      color: #a0528a;
+      margin: 10px 20px;
+    }
+
+    button {
+      margin: 10px auto;
+      padding: 12px 24px;
+      background: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background: #d63384;
+    }
+
+    .bouquet {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .rose {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+      animation: bloom 1s ease forwards, float 3s ease-in-out infinite;
+      transition: transform 0.6s ease;
+    }
+
+    @keyframes bloom {
+      0% { opacity: 0; transform: scale(0.7) rotate(-10deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .petal {
+      position: absolute;
+      width: 60px; height: 60px;
+      background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4 80%);
+      border-radius: 50%;
+      box-shadow: inset 0 0 6px rgba(255,182,193,0.4), 0 0 8px rgba(255,182,193,0.5);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.3); }
+    }
+
+    .petal1 { transform: rotate(0deg) translateY(-20px); }
+    .petal2 { transform: rotate(72deg) translateY(-20px); }
+    .petal3 { transform: rotate(144deg) translateY(-20px); }
+    .petal4 { transform: rotate(216deg) translateY(-20px); }
+    .petal5 { transform: rotate(288deg) translateY(-20px); }
+
+    .center {
+      position: absolute;
+      width: 25px; height: 25px;
+      background: radial-gradient(circle at center, #ffb6c1, #ff69b4);
+      border-radius: 50%;
+      top: 18px; left: 18px;
+      box-shadow: 0 0 6px rgba(255,105,180,0.5);
+    }
+
+    .stem {
+      width: 4px; height: 60px;
+      background: #2e8b57;
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    .leaf {
+      width: 12px; height: 24px;
+      background: #228B22;
+      border-radius: 50%;
+      position: relative;
+      left: -8px;
+      transform: rotate(-30deg);
+      margin-top: 5px;
+    }
+
+    .leaf::after {
+      content: '';
+      width: 12px; height: 24px;
+      background: #228B22;
+      border-radius: 50%;
+      position: absolute;
+      left: 12px; top: 0;
+      transform: rotate(60deg);
+    }
+
+    .petal-fall, .heart, .butterfly {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      animation: fall linear forwards;
+    }
+
+    .petal-fall {
+      width: 15px; height: 15px;
+      background: radial-gradient(circle, #ffc0cb 20%, #ff69b4 80%);
+      border-radius: 50%;
+    }
+
+    .heart {
+      width: 20px; height: 20px;
+      background: #ff6b9b;
+      transform: rotate(45deg);
+    }
+
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+      background: #ff6b9b;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+
+    .smile {
+      font-size: 3rem;
+      opacity: 0;
+      animation: smileIn 1s ease forwards;
+      animation-delay: 4s;
+      margin-top: 30px;
+    }
+
+    .note {
+      margin: 30px auto;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6rem;
+      color: #c71585;
+      opacity: 0;
+      animation: smileIn 1s ease forwards;
+      animation-delay: 5.5s;
+      max-width: 90%;
+    }
+
+    @keyframes smileIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    iframe {
+      margin: 20px auto;
+      border-radius: 12px;
+      animation: pulse 3s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(255,105,180,0.4);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,105,180,0.3); }
+      50% { transform: scale(1.02); box-shadow: 0 0 25px rgba(255,105,180,0.6); }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    h1:active, button:active {
+      animation: pop 0.3s ease;
+    }
+
+    #giftBox {
+      width: 160px;
+      height: 160px;
+      margin: 30px auto;
+      background: linear-gradient(45deg, #ff99cc, #ff66b2);
+      border-radius: 20px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+      position: relative;
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    }
+
+    #giftBox.unwrap {
+      transform: scale(0.2) rotateY(720deg);
+      opacity: 0;
+    }
+
+    #bouquetContainer {
+      display: none;
+    }
+
+    .surprise-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #db0073;
+      animation: fadeInUp 2s ease-out;
+      margin: 20px auto;
+      max-width: 90%;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .surprise-heart {
+      width: 80px;
+      height: 80px;
+      margin-top: 15px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .butterfly {
+      width: 40px;
+      animation: fly 10s linear infinite;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-20vh) translateX(50vw);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .rose { width: 50px; height: 50px; }
+      .petal, .center { width: 50px; height: 50px; }
+      .center { width: 20px; height: 20px; top: 15px; left: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 A Gentle Surprise for Kohina 🌸</h1>
+  <div class="message">Kohina, here’s something soft and peaceful, like pink roses. 🌷</div>
+
+  <div id="giftBox"></div>
+  <button onclick="unwrapGift()">Click to Open Gift 🎁</button>
+
+  <div id="bouquetContainer">
+    <div class="bouquet" id="bouquet"></div>
+    <div class="smile" id="smile">😊</div>
+    <div class="note">Just a small gesture to brighten your day, bbg 🌸</div>
+    <div class="note">🎵 Saza by Akshath</div>
+    <iframe src="https://open.spotify.com/embed/track/31Te83jO3QZeAti9ZI8MV1?utm_source=generator"
+            width="300" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="note">💌 "Your smile makes flowers jealous"</div>
+    <div class="note">🌷 "Every petal is a thank you for just being you"</div>
+    <div class="note">You're like a soft rose in a world of thorns. 🌷</div>
+    <div class="note">💖 Even silence feels poetic with you.</div>
+    <div class="note">🌸 This isn't just code — it's emotion, for you.</div>
+  </div>
+
+  <div id="surpriseArea"></div>
+
+  <script>
+    let roseCount = 0;
+    const maxRoses = 100;
+
+    function createRose() {
+      const rose = document.createElement('div');
+      rose.className = 'rose';
+      rose.innerHTML = `
+        <div class="petal petal1"></div>
+        <div class="petal petal2"></div>
+        <div class="petal petal3"></div>
+        <div class="petal petal4"></div>
+        <div class="petal petal5"></div>
+        <div class="center"></div>
+        <div class="stem"></div>
+        <div class="leaf"></div>`;
+      return rose;
+    }
+
+    function createFallingHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '-20px';
+      heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+
+    function createFallingPetal() {
+      const petal = document.createElement('div');
+      petal.className = 'petal-fall';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.top = '-20px';
+      petal.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 10000);
+    }
+
+    function createButterfly() {
+      const butterfly = document.createElement('img');
+      butterfly.src = 'https://i.imgur.com/Lm6pIya.png';
+      butterfly.className = 'butterfly';
+      butterfly.style.left = Math.random() * 100 + 'vw';
+      butterfly.style.top = '100vh';
+      document.body.appendChild(butterfly);
+      setTimeout(() => butterfly.remove(), 12000);
+    }
+
+    function startContinuousPetals() {
+      setInterval(createFallingPetal, 500);
+    }
+
+    function unwrapGift() {
+      const gift = document.getElementById('giftBox');
+      const container = document.getElementById('bouquetContainer');
+      gift.classList.add('unwrap');
+
+      setTimeout(() => {
+        for (let i = 0; i < 10; i++) {
+          setTimeout(() => {
+            if (roseCount < maxRoses) {
+              document.getElementById('bouquet').appendChild(createRose());
+              roseCount++;
+            }
+          }, i * 300);
+        }
+
+        container.style.display = 'block';
+        document.getElementById('smile').style.opacity = '1';
+
+        setInterval(createFallingHeart, 2000);
+        startContinuousPetals();
+        setInterval(createButterfly, 4000);
+
+        const surpriseDiv = document.getElementById('surpriseArea');
+        surpriseDiv.innerHTML = `
+          <div class="surprise-text">“You deserve the softest roses, the gentlest thoughts, and every kind smile the world can give.” 💗</div>
+          <img src="https://i.imgur.com/Y5S9kGp.png" alt="Heart" class="surprise-heart">
+        `;
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
+
+
